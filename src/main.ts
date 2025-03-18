@@ -1,4 +1,4 @@
-import { app, globalShortcut, BrowserWindow, session, screen } from "electron"
+import { app, globalShortcut, BrowserWindow, session, powerSaveBlocker } from "electron"
 import path from "path"
 import { rpcLogin } from "./rpc"
 
@@ -108,8 +108,9 @@ app.on("browser-window-created", async (_, window) => {
     }
 
     injectCode()
-    
     const client = rpcDisabled ? null : await rpcLogin()
+    const id = powerSaveBlocker.start('prevent-display-sleep')
+    console.log('Power save blocker', powerSaveBlocker.isStarted(id))
 
     if (!client && !rpcDisabled) {
         console.error("Failed to login to Discord RPC")
