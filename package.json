@@ -37,8 +37,8 @@
   "author": "marzeq <marzeqmarzeq@gmail.com>",
   "license": "GPL-3.0",
   "devDependencies": {
-    "electron": "^23.1.1",
-    "electron-builder": "^22.14.13",
+    "electron": "^35.0.1",
+    "electron-builder": "^25.1.8",
     "typescript": "^4.9.5"
   },
   "dependencies": {
